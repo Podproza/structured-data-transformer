@@ -1,0 +1,17 @@
+{
+  "hash": "4e9b1c3d8f4a7e1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b",
+  "inputs": [
+    {
+      "address": "1BoatSLRHtKNngkdXEeobR76b53LETtpyT",
+      "company": "Absolutely Existent Company",
+      "email": "realinput@example.com"
+    }
+  ],
+  "outputs": [
+    {
+      "address": "3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy",
+      "company": "Needs To Be Kept Secret Ltd.",
+      "email": "realoutput@example.com"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+[
+  {
+    "adapter": "json",
+    "glob": ["network.json"],
+    "transforms": {
+      "$.hash": "fake_transaction_id",
+      "$.inputs[*].address": "fake_p2sh_address",
+      "$.outputs[*].address": "fake_p2sh_address",
+      "$.inputs[*].company": "fake_company",
+      "$.outputs[*].company": "fake_company",
+      "$.inputs[*].email": "fake_email",
+      "$.outputs[*].email": "fake_email"
+    }
+  },
+  {
+    "adapter": "csv",
+    "glob": ["transactions.csv"],
+    "transforms": {
+      "txid": "fake_transaction_id",
+      "address": "fake_p2sh_address",
+      "company": "fake_company",
+      "email": "fake_email"
+    }
+  },
+  {
+    "adapter": "filename",
+    "glob": ["transactions/*.txt"],
+    "transforms": {
+      "([^/\\\\]+)(?=\\.txt)": "fake_p2sh_address"
+    }
+
+  }
+]
