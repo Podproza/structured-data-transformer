@@ -1,6 +1,8 @@
 [project]
 name = "structured-data-transformer"
-version = "0.1.0"
+description = "Declarative transformation tool for JSON, CSV, and filenames with stable mappings - ideal for anonymization and data manipulation"
+version = "0.2.1"
+license = {text = "MIT"}
 dependencies = [
     "jsonpath_ng==1.7.0",
     "faker==37.4.2",
@@ -8,13 +10,27 @@ dependencies = [
     "pydantic==2.11.7",
     "tqdm==4.67.1"
 ]
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/structured-data-transformer"
+Repository = "https://github.com/yourusername/structured-data-transformer"
+Documentation = "https://github.com/yourusername/structured-data-transformer#readme"
 
 [project.optional-dependencies]
 dev = [
     "pytest==8.4.1",
     "ruff==0.12.2",
+    "build==1.2.2",
+    "twine==6.1.0",
 ]
 
 
 [project.scripts]
 sdt = "structured_data_transformer:main"
+
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
