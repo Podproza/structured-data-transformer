@@ -6,6 +6,8 @@ from typing import Optional
 import base58
 from faker import Faker
 
+from structured_data_transformer.models import JSONPrimitive
+
 faker = Faker()
 
 
@@ -22,17 +24,17 @@ def generate_fake_txid() -> str:
     return secrets.token_bytes(32).hex()
 
 
-def fake_p2sh_address(_: Optional[str]) -> str:
+def fake_p2sh_address(_: Optional[JSONPrimitive]) -> str:
     return generate_p2sh_address()
 
 
-def fake_transaction_id(_: Optional[str]) -> str:
+def fake_transaction_id(_: Optional[JSONPrimitive]) -> str:
     return generate_fake_txid()
 
 
-def fake_email(_: Optional[str]) -> str:
+def fake_email(_: Optional[JSONPrimitive]) -> str:
     return faker.email()
 
 
-def fake_company(_: Optional[str]) -> str:
+def fake_company(_: Optional[JSONPrimitive]) -> str:
     return faker.company()

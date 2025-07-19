@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from typing import Literal, Union
 
 from pydantic import BaseModel, TypeAdapter
 
@@ -9,9 +10,7 @@ from structured_data_transformer.config.transform_config import (
     CsvTransformConfig,
     TransformConfig,
 )
-from structured_data_transformer.models import TransformFunc
-from structured_data_transformer.transforms import TRANSFORM_FUNCTION_MAP
-from typing import Literal, Union
+from structured_data_transformer.transforms import resolve_transforms
 
 
 class LoaderBaseModel(BaseModel):
@@ -19,18 +18,12 @@ class LoaderBaseModel(BaseModel):
     glob: list[str]
     transforms: dict[str, str]
 
-    def resolve_transforms(self) -> dict[str, TransformFunc]:
-        return {
-            pattern: TRANSFORM_FUNCTION_MAP[name]
-            for pattern, name in self.transforms.items()
-        }
-
     def transform_config_class(self) -> type[TransformConfig]:
         raise NotImplementedError()
 
     def to_runtime(self) -> TransformConfig:
         return self.transform_config_class()(
-            glob=self.glob, transforms=self.resolve_transforms()
+            glob=self.glob, transforms=resolve_transforms(self.transforms)
         )
 
 
