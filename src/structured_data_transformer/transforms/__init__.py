@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import Any
 
 from structured_data_transformer.models import TransformFunc
 from structured_data_transformer.transforms.anonymizers import (
@@ -6,6 +6,9 @@ from structured_data_transformer.transforms.anonymizers import (
     fake_transaction_id,
     fake_email,
     fake_company,
+    fake_hostname,
+    fake_name,
+    fake_full_name,
 )
 
 
@@ -38,7 +41,10 @@ TRANSFORM_FUNCTION_MAP: dict[str, TransformFunc] = {
     "fake_p2sh_address": fake_p2sh_address,
     "fake_transaction_id": fake_transaction_id,
     "fake_email": fake_email,
+    "fake_hostname": fake_hostname,
     "fake_company": fake_company,
+    "fake_name": fake_name,
+    "fake_full_name": fake_full_name,
 }
 
 
@@ -48,9 +54,8 @@ def register_transform(transform: TransformFunc, name: str) -> None:
 
 def resolve_transforms(
     transforms: dict[str, str],
-    transform_function_map: Optional[dict[str, TransformFunc]] = None,
+    transform_function_map: dict[str, TransformFunc],
 ) -> dict[str, TransformFunc]:
-    transform_function_map = transform_function_map or TRANSFORM_FUNCTION_MAP
     return {
         pattern: transform_function_map[name] for pattern, name in transforms.items()
     }

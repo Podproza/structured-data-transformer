@@ -10,7 +10,10 @@ from structured_data_transformer.config.transform_config import (
     CsvTransformConfig,
     TransformConfig,
 )
-from structured_data_transformer.transforms import resolve_transforms
+from structured_data_transformer.transforms import (
+    resolve_transforms,
+    TRANSFORM_FUNCTION_MAP,
+)
 
 
 class LoaderBaseModel(BaseModel):
@@ -23,7 +26,10 @@ class LoaderBaseModel(BaseModel):
 
     def to_runtime(self) -> TransformConfig:
         return self.transform_config_class()(
-            glob=self.glob, transforms=resolve_transforms(self.transforms)
+            glob=self.glob,
+            transforms=resolve_transforms(
+                self.transforms, transform_function_map=TRANSFORM_FUNCTION_MAP
+            ),
         )
 
 
