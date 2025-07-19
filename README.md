@@ -91,14 +91,18 @@ Only `str` can happen for csv/path adapters.
 To register the transform function, use `register_transform(func: callable, name: str)` 
 
 Example custom transform can be `uppercase`:
-```python
-from typing import Optional, Any
-from structured_data_transformer.transforms import register_transform
 
-def uppercase(value: Optional[Any]) -> Optional[Any]:
+```python
+from typing import Optional
+from structured_data_transformer.transforms import register_transform
+from structured_data_transformer.types import JSONPrimitive
+
+
+def uppercase(value: Optional[JSONPrimitive]) -> Optional[JSONPrimitive]:
     if value:
         return str(value).upper()
     return value
+
 
 register_transform(uppercase, "uppercase")
 ```
