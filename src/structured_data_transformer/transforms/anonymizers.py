@@ -6,7 +6,7 @@ from typing import Optional
 import base58
 from faker import Faker
 
-from structured_data_transformer.models import JSONPrimitive
+from structured_data_transformer.types import JSONPrimitive
 
 faker = Faker()
 

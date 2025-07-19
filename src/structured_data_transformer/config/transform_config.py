@@ -5,7 +5,7 @@ from pathlib import Path
 from structured_data_transformer.adapters.csv import transform_csv_file
 from structured_data_transformer.adapters.json import transform_json_file
 from structured_data_transformer.adapters.path import transform_path
-from structured_data_transformer.models import TransformFunc
+from structured_data_transformer.types import TransformFunc
 from structured_data_transformer.transforms import (
     StableAnonymizer,
     SkipEmptyStringTransform,

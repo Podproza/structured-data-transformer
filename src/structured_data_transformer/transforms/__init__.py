@@ -1,6 +1,6 @@
 from typing import Any
 
-from structured_data_transformer.models import TransformFunc
+from structured_data_transformer.types import TransformFunc
 from structured_data_transformer.transforms.anonymizers import (
     fake_p2sh_address,
     fake_transaction_id,

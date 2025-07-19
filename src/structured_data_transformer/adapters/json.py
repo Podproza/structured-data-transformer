@@ -4,7 +4,7 @@ from typing import Union, Any
 
 import jsonpath_ng
 
-from structured_data_transformer.models import TransformFunc
+from structured_data_transformer.types import TransformFunc
 
 JSONType = Union[dict[str, Any], list[Any]]
 

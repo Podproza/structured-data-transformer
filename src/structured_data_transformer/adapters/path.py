@@ -1,7 +1,7 @@
 import re
 from pathlib import Path
 
-from structured_data_transformer.models import TransformFunc
+from structured_data_transformer.types import TransformFunc
 
 
 def transform_path(

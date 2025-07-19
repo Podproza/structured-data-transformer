@@ -1,7 +1,7 @@
 import csv
 from pathlib import Path
 
-from structured_data_transformer.models import TransformFunc
+from structured_data_transformer.types import TransformFunc
 
 
 def transform_csv_file(
